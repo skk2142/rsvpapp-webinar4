@@ -67,19 +67,19 @@ workflows:
   build-deploy:
     jobs:
       - test:
-          context: kollate-global
+          context: DOCKERHUB
           filters:
             branches:
               only: dev        
       - build:
-          context: kollate-global
+          context: DOCKERHUB
           requires:
             - test
           filters:
             branches:
               only: dev
       - push:
-          context: kollate-global
+          context: DOCKERHUB
           requires:
             - build
           filters:
